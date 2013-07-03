@@ -6,15 +6,16 @@ A template for creating rails 3.2 applications.
 ## Development
 
 ```
-git clone git@github.com/devfu/base.git
-cd base
-bundle
-# edit .env (see sample.env)
-cp Procfile.local{.sample,}
-foreman start -f Procfile.local
-bundle exec rake db:setup
-bundle exec rake db:test:prepare
-rspec spec
+$ git clone git@github.com/devfu/base.git
+$ cd base
+$ bundle
+$ cp {sample,}.env                  # edit this file
+$ cp Procfile.local{.sample,}       # edit this file
+$ cp config/database.yml{.sample,}  # edit this file
+$ foreman start -f Procfile.local
+$ bundle exec rake db:setup
+$ bundle exec rake db:test:prepare
+$ bundle exec rspec spec
 ```
 
 Environment variables are stored in ./.env
