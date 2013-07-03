@@ -1,7 +1,7 @@
 ENV['SKIP_RAILS_ADMIN_INITIALIZER'] = 'false'
 
-require 'simplecov'
-SimpleCov.start 'rails'
+require 'coveralls'
+Coveralls.wear! 'rails'
 
 ENV['RAILS_ENV'] ||= 'test'
 
