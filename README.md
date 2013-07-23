@@ -5,6 +5,13 @@ A template for creating rails 3.2 applications.
 
 ## Development
 
+### Prerequisites
+
+- ruby 2.0.0
+- bundler
+- postgresql
+- phantomjs (for headless testing)
+
 ```
 $ git clone git@github.com/devfu/base.git
 $ cd base
@@ -12,10 +19,9 @@ $ bundle
 $ cp {sample,}.env                  # edit this file
 $ cp Procfile.local{.sample,}       # edit this file
 $ cp config/database.yml{.sample,}  # edit this file
-$ foreman start -f Procfile.local
 $ bundle exec rake db:setup
-$ bundle exec rake db:test:prepare
-$ bundle exec rspec spec
+$ bundle exec rake spec
+$ foreman start -f Procfile.local
 ```
 
 Environment variables are stored in ./.env

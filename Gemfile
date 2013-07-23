@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 
 gem 'bootstrap-sass', '~> 2.0'
-gem 'devise'
+gem 'devise',         '~> 2.2.4'
 gem 'haml-rails'
 gem 'hirb'
 gem 'jquery-rails'
@@ -27,7 +27,9 @@ group :production do
 end
 
 group :development do
+  gem 'better_errors'
   gem 'foreman'
+  gem 'mailcatcher'
   gem 'pry-debugger'
   gem 'yard'
 end
@@ -43,9 +45,12 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'launchy'
-  gem 'mysql2'              # for ci against mysql
   gem 'poltergeist'
   gem 'simplecov',          require: false
   gem 'syntax'
   gem 'validation_matcher'
+
+  # alternative DBs for CI
+  gem 'mysql2'
+  gem 'sqlite3'
 end

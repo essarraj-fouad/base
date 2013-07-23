@@ -6,10 +6,11 @@ rvm:
 
 env:
   global:
-  - SECRET_TOKEN=3457f9d6b2b35dd58ab98630210674a5a0277d05c5f9dfe8d3375283f74e65dc03367fb3e32594c3bbf131c8261a553a19c34ee57fc5363f1f78853745d4bdd6
+  - SECRET_TOKEN=cce88e19cedbfc72bf9ce7c47a58085584e8ae4ebddf3303daf8cefa5654141c34d5399f2de6c7b7ba55a718075b4e29777306f8cdfa6309816a29ece7fd5dce
   matrix:
   - DB=mysql
   - DB=postgresql
+  - DB=sqlite
 
 bundler_args: --without development production
 
