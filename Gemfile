@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '~> 3.2'
 
 gem 'bootstrap-sass', '~> 2.0'
 gem 'devise',         '~> 2.2.4'
@@ -13,12 +13,12 @@ gem 'pry-doc'
 gem 'pry-rails'
 gem 'rails_admin'
 gem 'redcarpet'
-gem 'sass-rails',     '~> 3.2.3'
+gem 'sass-rails'
 
 group :assets do
-  gem 'coffee-rails',    '~> 3.2.1'
+  gem 'coffee-rails'
   gem 'jquery-ui-rails'
-  gem 'uglifier',        '>= 1.0.3'
+  gem 'uglifier'
 end
 
 group :production do
