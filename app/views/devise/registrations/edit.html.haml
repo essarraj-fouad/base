@@ -1,0 +1,54 @@
+- title "Edit #{resource_name.to_s.humanize}"
+
+.row-fluid
+  = form_for resource, as: resource_name, url: registration_path(resource_name), :method => :put do |f|
+
+    - if resource.errors.any?
+      .alert.alert-block.alert-danger
+        Could not update your account!
+
+    - errors = resource.errors[:email]
+    .control-group{ class: errors.any? ? 'error' : nil }
+      = f.label :email, class: 'control-label'
+      .controls
+        = f.email_field :email, autofocus: true, class: 'span4'
+        .help-block
+          - if errors.any?
+            = errors.to_sentence
+          - elsif devise_mapping.confirmable? && resource.pending_reconfirmation?
+            Currently waiting confirmation for: #{ resource.unconfirmed_email }
+
+    - errors = resource.errors[:password]
+    .control-group{ class: errors.any? ? 'error' : nil }
+      = f.label :password, 'New Password', class: 'control-label'
+      .controls
+        = f.password_field :password, class: 'span4'
+        .help-block
+          - if errors.any?
+            = errors.to_sentence
+          - else
+            (leave blank if you don't want to change it)
+
+    .control-group
+      = f.label :password_confirmation, class: 'control-label'
+      .controls
+        = f.password_field :password_confirmation, class: 'span4'
+
+    - errors = resource.errors[:current_password]
+    .control-group{ class: errors.any? ? 'error' : nil }
+      = f.label :current_password, class: 'control-label'
+      .controls
+        = f.password_field :current_password, class: 'span4'
+        .help-block
+          - if errors.any?
+            = errors.to_sentence
+          - else
+            (we need your current password to confirm your changes)
+
+    .controls
+      .row-fluid
+        %p.span4= f.submit 'Update my account', class: 'btn btn-block btn-primary'
+      .row-fluid
+        %p.span4= link_to 'Cancel my account', registration_path(resource_name), class: 'btn btn-block btn-danger', data: { confirm: 'Are you sure?' }, :method => :delete
+      .row-fluid
+        %p.span4= link_to 'Back', :back, class: 'btn btn-block btn-inverse'

@@ -15,7 +15,7 @@ describe 'Users' do
     it 'creates a new account' do
       # invalid data
       click_button 'Sign up'
-      should have_content('prohibited this user from being saved')
+      should have_content('Could not sign up!')
 
       # valid data
       fill_in_fields 'user', email:                 'user@testing.com',
@@ -28,6 +28,61 @@ describe 'Users' do
     end
 
   end
+
+  describe 'canceling account' do
+
+    before do
+      login_as user
+      visit edit_user_registration_path
+    end
+
+    it 'links to cancellation with confirmation' do
+      should have_css("a[href='#{ user_registration_path }'][data-confirm='Are you sure?'][data-method='delete']")
+    end
+
+  end
+
+  describe 'editing account' do
+
+    before do
+      login_as user
+      visit edit_user_registration_path
+    end
+
+    it 'can change email' do
+      # without current password
+      fill_in_fields 'user', email: 'user@new-email.com'
+
+      click_button 'Update my account'
+      should have_content('Could not update your account!')
+
+      # with current password
+      fill_in_fields 'user', current_password: 'password',
+                             email:            'user@new-email.com'
+
+      click_button 'Update my account'
+      should have_content('You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address.')
+    end
+
+    it 'can change password' do
+      # without current password
+      fill_in_fields 'user', password:              'new-password',
+                             password_confirmation: 'new-password'
+
+      click_button 'Update my account'
+      should have_content('Could not update your account!')
+
+      # with current password
+      fill_in_fields 'user', current_password:      'password',
+                             password:              'new-password',
+                             password_confirmation: 'new-password'
+
+      click_button 'Update my account'
+      should have_content('You updated your account successfully.')
+    end
+
+  end
+
 
   describe 'signing in' do
 
