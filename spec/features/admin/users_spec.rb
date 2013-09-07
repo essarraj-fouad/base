@@ -50,6 +50,10 @@ describe 'Managing Users' do
           visit path
         end
 
+        it 'does not link to lock the current user' do
+          should_not have_css "a[href='#{ rails_admin.lock_user_path :user, admin }']"
+        end
+
         it 'does not link to unlock each user' do
           User.access_unlocked.map do |user|
             should_not have_css "a[href='#{ rails_admin.unlock_user_path :user, user }']"

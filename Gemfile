@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 3.2'
 
 gem 'bootstrap-sass', '~> 2.0'
+gem 'cancan'
 gem 'devise',         '~> 2.2.4'
 gem 'haml-rails'
 gem 'hirb'

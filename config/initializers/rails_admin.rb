@@ -5,8 +5,9 @@
 
 RailsAdmin.config do |config|
   config.attr_accessible_role { :admin }
-  config.authorize_with       { redirect_to '/' unless warden.user.try(:admin?) }
   config.current_user_method  { current_user }
+
+  config.authorize_with :cancan
 
   config.main_app_name = ['Dev Fu! Base', 'Admin']
 
