@@ -280,7 +280,6 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
-  bootstrap-sass (~> 2.0)
   cancan
   capybara
   coffee-rails
