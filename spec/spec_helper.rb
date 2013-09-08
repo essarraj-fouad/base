@@ -26,7 +26,10 @@ RSpec.configure do |config|
 
   config.before :each do
     SimpleCov.command_name "RSpec:#{ Process.pid.to_s }#{ ENV['TEST_ENV_NUMBER'] }"
-    DatabaseCleaner.clean
+    DatabaseCleaner.start
   end
 
+  config.after :each do
+    DatabaseCleaner.clean
+  end
 end
