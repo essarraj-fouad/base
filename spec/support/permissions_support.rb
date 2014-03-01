@@ -2,8 +2,6 @@ module PermissionsMatcher
 
   RSpec::Matchers.define :allow_access do
 
-    include Rails.application.routes.url_helpers
-
     chain(:to) { |who| @who = who }
 
     def login_and_visit
