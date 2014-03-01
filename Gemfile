@@ -30,8 +30,11 @@ group :development do
   gem 'better_errors'
   gem 'foreman'
   gem 'mailcatcher'
-  gem 'pry-debugger'
   gem 'yard'
+
+  # install the appropriate pry debug tool
+  gem 'pry-byebug',   require: false, platform: 'ruby_20'
+  gem 'pry-debugger', require: false, platform: 'ruby_19'
 end
 
 group :development, :test do
