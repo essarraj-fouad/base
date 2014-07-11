@@ -29,3 +29,5 @@ module DevFuBase
     config.time_zone                                   = 'Arizona'
   end
 end
+
+I18n.enforce_available_locales = true

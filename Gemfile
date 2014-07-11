@@ -45,10 +45,11 @@ end
 group :test do
   gem 'capybara'
   gem 'coveralls',          require: false
-  gem 'database_cleaner',   '~> 1.0.1'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'poltergeist'
+  gem 'rspec-its'
   gem 'simplecov',          require: false
   gem 'syntax'
   gem 'timecop'
