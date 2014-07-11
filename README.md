@@ -1,5 +1,5 @@
-Dev Fu! Base [![build status][ci-image]][ci] [![code quality][cq-image]][cq] [![test coverage][cc-image]][cc]
-=============================================================================================================
+Dev Fu! Base [![build status][ci-image]][ci] [![code quality][cq-image]][cq] [![code quality][cc-image]][cq]
+============================================================================================================
 
 A template for creating rails 3.2 applications.
 
@@ -67,11 +67,10 @@ Use the heroku config command to check/set environemnt variables on Heroku.
 Developed by [Dev Fu!, LLC](http://devfu.com)
 
 <!-- links -->
-[cc]: https://coveralls.io/r/devfu/base "test coverage"
 [ci]: http://travis-ci.org/devfu/base "build status"
 [cq]: https://codeclimate.com/github/devfu/base "code quality"
 
 <!-- images -->
-[cc-image]: https://coveralls.io/repos/devfu/base/badge.png
-[ci-image]: https://secure.travis-ci.org/devfu/base.png
+[cc-image]: https://codeclimate.com/github/devfu/base/coverage.png
+[ci-image]: https://travis-ci.org/devfu/base.svg?branch=master
 [cq-image]: https://codeclimate.com/github/devfu/base.png
