@@ -15,7 +15,6 @@ module DevFuBase
     config.active_support.escape_html_entities_in_json = true
     config.assets.enabled                              = true
     config.assets.initialize_on_precompile             = false
-    config.assets.precompile                          += %w[ rails_admin/rails_admin.css rails_admin/rails_admin.js ]
     config.assets.version                              = '1.0'
     config.autoload_paths                             += %W[ #{ config.root }/lib ]
     config.encoding                                    = 'utf-8'

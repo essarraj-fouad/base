@@ -11,7 +11,6 @@ gem 'pg'
 gem 'pry'
 gem 'pry-doc'
 gem 'pry-rails'
-gem 'rails_admin'
 gem 'redcarpet'
 gem 'sass-rails'
 

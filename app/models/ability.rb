@@ -4,8 +4,7 @@ class Ability
   def initialize user
     user ||= User.new
 
-    if user && user.admin?
-      can :access, :rails_admin
+    if user.admin?
       can :manage, :all
 
       cannot :destroy,     User, id: user.id
