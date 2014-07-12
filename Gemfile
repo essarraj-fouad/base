@@ -44,12 +44,12 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'coveralls',          require: false
-  gem 'database_cleaner',   '~> 1.0.1'
+  gem 'codeclimate-test-reporter', require: false
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'poltergeist'
-  gem 'simplecov',          require: false
+  gem 'rspec-its'
   gem 'syntax'
   gem 'timecop'
   gem 'validation_matcher'

@@ -3,12 +3,13 @@ language: ruby
 rvm:
   - 1.9.3
   - 2.0.0
-  - 2.1.0
-  - 2.1.1
+  - 2.1.2
 
 env:
   global:
-  - SECRET_TOKEN=cce88e19cedbfc72bf9ce7c47a58085584e8ae4ebddf3303daf8cefa5654141c34d5399f2de6c7b7ba55a718075b4e29777306f8cdfa6309816a29ece7fd5dce
+    - SECRET_TOKEN=cce88e19cedbfc72bf9ce7c47a58085584e8ae4ebddf3303daf8cefa5654141c34d5399f2de6c7b7ba55a718075b4e29777306f8cdfa6309816a29ece7fd5dce
+    - secure: "KMl0cAmHOw7r/mUJC/noEC4Th+ZK5ofvh2DZCbg/5/efCTHdnYhdeBIg83fQTKE315csyjitwnUYVIPUQpcSqfC+SB3YJMPSJXlVvJmL3INko/nCPVUsh9C7UaIF7jSoRPQxzb5xhim5gQzOV9Qd3ecFBMfU/plIUeDrfVQP8GI="
+
   matrix:
   - DB=mysql
   - DB=postgresql
@@ -17,9 +18,9 @@ env:
 bundler_args: --without development production
 
 before_script:
-  - curl -Lo config/database.yml http://git.io/YLiX3g
-  - bundle --quiet
+  - curl --silent -L https://gist.githubusercontent.com/BM5k/38c55d9ffaf6f9865949/raw/database.yml -o config/database.yml
   - bundle exec rake db:setup
 
-script:
-  - RAILS_ENV=test bundle exec rspec spec
+cache: bundler
+
+script: RAILS_ENV=test bundle exec rspec spec

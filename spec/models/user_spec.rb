@@ -4,7 +4,7 @@ describe User do
 
   describe 'defaults' do
 
-    its(:admin) { should be_false }
+    its(:admin) { should be_falsey }
 
   end
 
