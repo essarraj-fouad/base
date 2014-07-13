@@ -4,7 +4,8 @@ describe 'Users' do
 
   subject { page }
 
-  let(:user) { FactoryGirl.create :user }
+  let(:admin) { FactoryGirl.create :admin }
+  let(:user)  { FactoryGirl.create :user }
 
   describe 'sign up' do
 
@@ -83,7 +84,6 @@ describe 'Users' do
 
   end
 
-
   describe 'signing in' do
 
     it 'is linked to from the home page' do
@@ -106,6 +106,17 @@ describe 'Users' do
         fill_in_fields :user, email: user.email, password: 'password'
         click_button 'Sign in'
         should have_content 'Signed in successfully'
+      end
+
+      context 'as an admin' do
+
+        it 'redirects to admin panel' do
+          fill_in_fields :user, email: admin.email, password: 'password'
+          click_button 'Sign in'
+
+          should_be_on admin_dashboard_path
+        end
+
       end
 
     end
