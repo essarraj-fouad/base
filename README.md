@@ -55,6 +55,17 @@ rake spec # this will run all of the RSpec specifications, located in ./spec
 
 Recommended deployment is via [Heroku](http://heroku.com). They have an excellent intro at http://docs.heroku.com/quickstart
 
+### Addons
+
+We're using the following heroku addons
+
+- heroku-postgresql:dev
+- memcachier:dev
+- newrelic:wayne
+- papertrail:choklad
+- pgbackups:plus
+- sendgrid:starter
+
 ### Environment Variables
 
 Use the heroku config command to check/set environemnt variables on Heroku.

@@ -22,6 +22,8 @@ group :assets do
 end
 
 group :production do
+  gem 'dalli'
+  gem 'memcachier'
   gem 'newrelic_rpm'
   gem 'rails_12factor'
   gem 'unicorn'

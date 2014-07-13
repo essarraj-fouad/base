@@ -1,6 +1,7 @@
 DevFuBase::Application.configure do
   config.action_controller.perform_caching = true
   config.active_support.deprecation        = :notify
+  config.assets.cache_store                = :dalli_store
   config.assets.compile                    = false
   config.assets.compress                   = true
   config.assets.digest                     = true
