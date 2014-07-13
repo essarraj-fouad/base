@@ -4,8 +4,7 @@
 %w[ lock_user unlock_user ].each { |p| require "rails_admin/config/actions/#{ p }" }
 
 RailsAdmin.config do |config|
-  config.attr_accessible_role { :admin }
-  config.current_user_method  { current_user }
+  config.current_user_method { current_user }
 
   config.authorize_with :cancan
 
