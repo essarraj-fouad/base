@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20140712193557) do
     t.datetime "locked_at"
     t.integer  "failed_attempts",        default: 0
     t.boolean  "admin",                  default: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
