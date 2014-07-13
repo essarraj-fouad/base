@@ -9,7 +9,7 @@ describe 'Managing Users' do
 
   describe 'listing' do
 
-    let(:path) { rails_admin.index_path :user }
+    let(:path) { admin_users_path }
 
     describe 'permissions' do
 
@@ -29,17 +29,17 @@ describe 'Managing Users' do
         visit path
       end
 
-      it { should have_css "a[href='#{ rails_admin.new_path :user }']" }
+      it { should have_css "a[href='#{ new_admin_user_path }']" }
 
       it 'links to edit each user' do
         User.all.map do |user|
-          should have_css "a[href='#{ rails_admin.edit_path :user, user }']"
+          should have_css "a[href='#{ edit_admin_user_path user }']"
         end
       end
 
       it 'links to delete each user' do
         other_users.all.map do |user|
-          should have_css "a[href='#{ rails_admin.delete_path :user, user }']"
+          should have_css "a[href='#{ admin_user_path user }'][data-method='delete']"
         end
       end
 
@@ -51,18 +51,18 @@ describe 'Managing Users' do
         end
 
         it 'does not link to lock the current user' do
-          should_not have_css "a[href='#{ rails_admin.lock_user_path :user, admin }']"
+          should_not have_css "a[href='#{ lock_admin_user_path user }']"
         end
 
         it 'does not link to unlock each user' do
           User.access_unlocked.map do |user|
-            should_not have_css "a[href='#{ rails_admin.unlock_user_path :user, user }']"
+            should_not have_css "a[href='#{ unlock_admin_user_path user }']"
           end
         end
 
         it 'links to lock each user' do
           other_users.access_unlocked.map do |user|
-            should have_css "a[href='#{ rails_admin.lock_user_path :user, user }']"
+            should have_css "a[href='#{ lock_admin_user_path user }']"
           end
         end
 
@@ -77,13 +77,13 @@ describe 'Managing Users' do
 
         it 'does not link to lock each user' do
           User.access_locked.map do |user|
-            should_not have_css "a[href='#{ rails_admin.lock_user_path :user, user }']"
+            should_not have_css "a[href='#{ lock_admin_user_path user }']"
           end
         end
 
         it 'links to unlock each user' do
           User.access_locked.map do |user|
-            should have_css "a[href='#{ rails_admin.unlock_user_path :user, user }']"
+            should have_css "a[href='#{ unlock_admin_user_path user }']"
           end
         end
 
@@ -95,7 +95,7 @@ describe 'Managing Users' do
 
   describe 'creating' do
 
-    let(:path) { rails_admin.new_path :user }
+    let(:path) { new_admin_user_path }
 
     describe 'permissions' do
 
@@ -114,16 +114,18 @@ describe 'Managing Users' do
 
       it 'creates a new user' do
         # invalid data
-        click_button 'Save'
-        should have_content('User failed to be created')
+        click_button 'Create User'
+
+        should have_content 'User was not successfully created'
+        should have_css '.input.error'
 
         # valid data
         fill_in_fields :user, email: 'picard@enterprise.com', password: 'password'
 
         check 'Admin'
 
-        click_button 'Save'
-        should have_content('User successfully created')
+        click_button 'Create User'
+        should have_content 'User was successfully created'
       end
 
     end
@@ -132,7 +134,7 @@ describe 'Managing Users' do
 
   describe 'editing' do
 
-    let(:path) { rails_admin.edit_path :user, user }
+    let(:path) { edit_admin_user_path user }
 
     describe 'permissions' do
 
@@ -153,16 +155,16 @@ describe 'Managing Users' do
         # invalid data
         fill_in_fields :user, email: ''
 
-        click_button 'Save'
-        should have_content('User failed to be updated')
+        click_button 'Update User'
+        should have_content 'User was not successfully updated'
 
         # valid data
         fill_in_fields :user, email: user.email, password: 'drowssap'
 
         check 'Admin'
 
-        click_button 'Save'
-        should have_content('User successfully updated')
+        click_button 'Update User'
+        should have_content 'User was successfully updated'
       end
 
     end
@@ -171,7 +173,7 @@ describe 'Managing Users' do
 
   describe 'destroying' do
 
-    let(:path) { rails_admin.index_path :user }
+    let(:path) { admin_users_path }
 
     before do
       user
@@ -179,20 +181,16 @@ describe 'Managing Users' do
       visit path
     end
 
-    it 'prompts for confirmation', :js do
-      find("a[href='#{ rails_admin.delete_path :user, user }']").click
-      should have_content('Are you sure you want to delete this user')
-    end
+    it 'prompts for confirmation' do
+      href    = "href='#{ admin_user_path user }'"
+      method  = 'data-method="delete"'
+      confirm = 'data-confirm="Are you sure you want to delete this?"'
 
-    it 'displays a confirmation' do
-      visit rails_admin.delete_path :user, user
-      click_button "Yes, I'm sure"
-      should have_content('User successfully deleted')
+      should have_css "a[#{ href }][#{ method }][#{ confirm }]"
     end
 
     it 'deletes the user' do
-      visit rails_admin.delete_path :user, user
-      click_button "Yes, I'm sure"
+      find("a[href='#{ admin_user_path user }'][data-method='delete']").click
 
       ->{ user.reload }.should raise_exception ActiveRecord::RecordNotFound
     end

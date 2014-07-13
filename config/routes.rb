@@ -1,7 +1,8 @@
 DevFuBase::Application.routes.draw do
 
   devise_for :users
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+   ActiveAdmin.routes self
 
   root to: 'welcome#index'
 

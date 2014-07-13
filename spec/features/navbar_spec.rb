@@ -14,7 +14,7 @@ describe 'Navbar' do
     end
 
     it 'does not link to the admin' do
-      should_not have_css(".navbar a[href='#{ rails_admin.dashboard_path }']")
+      should_not have_css(".navbar a[href='#{ admin_dashboard_path }']")
     end
 
     it 'links to sign in' do
@@ -31,7 +31,7 @@ describe 'Navbar' do
     end
 
     it 'does not link to the admin' do
-      should_not have_css(".navbar a[href='#{ rails_admin.dashboard_path }']")
+      should_not have_css(".navbar a[href='#{ admin_dashboard_path }']")
     end
 
   end
@@ -44,7 +44,7 @@ describe 'Navbar' do
     end
 
     it 'links to the admin' do
-      should have_css(".navbar a[href='#{ rails_admin.dashboard_path }']")
+      should have_css(".navbar a[href='#{ admin_dashboard_path }']")
     end
 
   end

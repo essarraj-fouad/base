@@ -9,7 +9,7 @@ describe 'Admin' do
 
   describe 'permissions' do
 
-    let(:path) { rails_admin.dashboard_path }
+    let(:path) { admin_dashboard_path }
 
     it { should_not allow_access.to :guest }
     it { should_not allow_access.to :user  }
