@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails'
 
+gem 'activeadmin',  github: 'gregbell/active_admin'
 gem 'cancan'
 gem 'devise'
 gem 'haml-rails'
@@ -28,6 +29,7 @@ end
 
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'foreman'
   gem 'mailcatcher'
   gem 'yard'

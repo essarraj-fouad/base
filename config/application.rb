@@ -15,11 +15,13 @@ module DevFuBase
     config.active_support.escape_html_entities_in_json = true
     config.assets.enabled                              = true
     config.assets.initialize_on_precompile             = false
-    config.assets.version                              = '1.0'
+    config.assets.precompile                          += %w[ active_admin.css active_admin/print.css active_admin.js ]
+    config.assets.version                              = '2.0'
     config.autoload_paths                             += %W[ #{ config.root }/lib ]
     config.encoding                                    = 'utf-8'
     config.filter_parameters                          += [ :password ]
     config.i18n.default_locale                         = :en
+    config.responders.flash_keys                       = [ :success, :danger ]
     config.sass.preferred_syntax                       = :sass
     config.time_zone                                   = 'Arizona'
   end
