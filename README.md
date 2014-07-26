@@ -1,7 +1,7 @@
 Dev Fu! Base [![build status][ci-image]][ci] [![code quality][cq-image]][cq] [![code quality][cc-image]][cq]
 ============================================================================================================
 
-A template for creating rails 3.2 applications.
+A template for creating rails 4.1 applications.
 
 ## Prerequisites
 
