@@ -14,7 +14,6 @@ module DevFuBase
   class Application < Rails::Application
     config.active_support.escape_html_entities_in_json = true
     config.assets.enabled                              = true
-    config.assets.initialize_on_precompile             = false
     config.assets.precompile                          += %w[ active_admin.css active_admin/print.css active_admin.js ]
     config.assets.version                              = '2.0'
     config.autoload_paths                             += %W[ #{ config.root }/lib ]

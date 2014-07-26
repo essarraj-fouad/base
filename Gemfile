@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails'
 
 gem 'activeadmin',  github: 'gregbell/active_admin'
+gem 'bootstrap-sass'
 gem 'cancan'
 gem 'devise'
 gem 'haml-rails'

@@ -54,6 +54,8 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.2.0.0)
+      sass (~> 3.2)
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
@@ -318,6 +320,7 @@ DEPENDENCIES
   activeadmin!
   better_errors
   binding_of_caller
+  bootstrap-sass
   cancan
   capybara
   codeclimate-test-reporter
