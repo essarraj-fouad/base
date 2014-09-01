@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails'
 
-gem 'activeadmin',  github: 'gregbell/active_admin'
+gem 'activeadmin',    github: 'gregbell/active_admin'
 gem 'bootstrap-sass'
 gem 'cancan'
 gem 'devise'
@@ -10,8 +10,6 @@ gem 'haml-rails'
 gem 'hirb'
 gem 'jquery-rails'
 gem 'pg'
-gem 'pry'
-gem 'pry-doc'
 gem 'pry-rails'
 gem 'redcarpet'
 gem 'sass-rails'
@@ -34,12 +32,8 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'foreman'
-  gem 'mailcatcher'
-  gem 'yard'
-
-  # install the appropriate pry debug tool
-  gem 'pry-byebug',   require: false, platform: 'ruby_20'
-  gem 'pry-debugger', require: false, platform: 'ruby_19'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :development, :test do
