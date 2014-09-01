@@ -1,0 +1,31 @@
+{
+  "name": "Base",
+  "description": "Example rails app",
+  "repository": "https://github.com/devfu/base",
+  "keywords": [
+    "devise",
+    "heroku",
+    "rails"
+  ],
+  "addons": [
+    "heroku-postgresql:dev",
+    "memcachier:dev",
+    "newrelic:wayne",
+    "papertrail:choklad",
+    "pgbackups:plus",
+    "rollbar:free",
+    "sendgrid:starter"
+  ],
+  "env": {
+    "EMAIL_HOST": {
+      "description": "The hostname used in outgoing emails."
+    },
+    "SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake bootstrap"
+  }
+}
