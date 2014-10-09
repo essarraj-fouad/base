@@ -8,7 +8,7 @@
     "rails"
   ],
   "addons": [
-    "heroku-postgresql:dev",
+    "heroku-postgresql:hobby-dev",
     "memcachier:dev",
     "newrelic:wayne",
     "papertrail:choklad",

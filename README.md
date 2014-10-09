@@ -61,7 +61,7 @@ Recommended deployment is via [Heroku](http://heroku.com). They have an excellen
 
 We're using the following heroku addons
 
-- heroku-postgresql:dev
+- heroku-postgresql:hobby-dev
 - memcachier:dev
 - newrelic:wayne
 - papertrail:choklad
