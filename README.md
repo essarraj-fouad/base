@@ -76,6 +76,7 @@ Use the heroku config command to check/set environemnt variables on Heroku.
 
 - [BM5k](https://github.com/bm5k)
 - [koedbymonkey](https://github.com/koedbymonkey)
+- [bowerman](https://github.com/bowerman)
 
 Developed by [Dev Fu!, LLC](http://devfu.com)
 
