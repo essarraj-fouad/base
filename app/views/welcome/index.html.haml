@@ -3,4 +3,8 @@
 .jumbotron
   %h1 Dev Fu! Base
   %p Simple rails app
-  %p= link_to 'Fork me on github', 'https://github.com/devfu/base', class: 'btn btn-success'
+  %p
+    = link_to 'Fork me on github', 'https://github.com/devfu/base', class: 'btn btn-success'
+    or
+    = link_to 'https://heroku.com/deploy?template=https://github.com/devfu/base', alt: 'deploy' do
+      = image_tag('https://www.herokucdn.com/deploy/button.svg')
