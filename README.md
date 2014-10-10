@@ -3,12 +3,6 @@ Dev Fu! Base [![build status][ci-image]][ci] [![code quality][cq-image]][cq] [![
 
 A template for creating rails 4.1 applications.
 
-## Prerequisites
-
-- ruby 2.0.0
-- bundler
-- postgresql
-
 ### Environment Variables
 
 In development & test, environment variables are loaded from `.env`
@@ -18,6 +12,13 @@ In development & test, environment variables are loaded from `.env`
   - **UNICORN_WORKERS**: number of unicorn workers to start
 
 ## Development
+
+### Prerequisites
+
+- ruby 2.0.0+   # rvm install 2.1.3
+- bundler
+- mysql         # brew install mysql
+- postgresql    # http://postgresapp.com
 
 ```bash
 $ git clone git@github.com/devfu/base.git
