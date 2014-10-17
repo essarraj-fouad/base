@@ -11,6 +11,11 @@ In development & test, environment variables are loaded from `.env`
   - **SECRET_TOKEN**: secret token for rails
   - **UNICORN_WORKERS**: number of unicorn workers to start
 
+#### Omniauth Providers
+
+  - **FACEBOOK_APP_ID**
+  - **FACEBOOK_SECRET**
+
 ## Development
 
 ### Prerequisites

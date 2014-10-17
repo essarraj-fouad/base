@@ -20,6 +20,12 @@
     "EMAIL_HOST": {
       "description": "The hostname used in outgoing emails."
     },
+    "FACEBOOK_APP_ID": {
+      "description": "App id from Facebook"
+    },
+    "FACEBOOK_SECRET": {
+      "description": "App secret from Facebook"
+    },
     "SECRET_TOKEN": {
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
