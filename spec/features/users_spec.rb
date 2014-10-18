@@ -121,6 +121,42 @@ describe 'Users' do
 
     end
 
+    describe 'with facebook' do
+
+      before do
+        visit root_path
+      end
+
+      describe 'invalid data' do
+
+        before do
+          OmniAuth.config.mock_auth[:facebook] = :invalid
+        end
+
+        it 'displays an error' do
+          click_link 'Sign in with Facebook'
+          should have_content 'Could not authenticate you from Facebook'
+        end
+
+      end
+
+      describe 'valid data' do
+
+        before do
+          OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new info:     { email: '12345@facebook.com' },
+                                                                        provider: 'facebook',
+                                                                        uid:      '123545'
+        end
+
+        it 'displays a success message' do
+          click_link 'Sign in with Facebook'
+          should have_content 'Successfully authenticated from Facebook account'
+        end
+
+      end
+
+    end
+
   end
 
   describe 'signing out' do
