@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
-  devise :omniauthable, omniauth_providers: %i[ facebook ]
+  devise :omniauthable, omniauth_providers: %i[ facebook github ]
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 

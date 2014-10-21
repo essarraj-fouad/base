@@ -15,6 +15,8 @@ In development & test, environment variables are loaded from `.env`
 
   - **FACEBOOK_APP_ID**
   - **FACEBOOK_SECRET**
+  - **GITHUB_APP_ID**
+  - **GITHUB_SECRET**
 
 ## Development
 
