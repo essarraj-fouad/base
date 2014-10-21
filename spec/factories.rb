@@ -1,10 +1,12 @@
 FactoryGirl.define do
 
   factory :unconfirmed_user, class: User do
-    sequence(:email) { |n| "user#{ n }@testing.com" }
+    email { Faker::Internet.email }
 
     password              'password'
     password_confirmation 'password'
+
+    username { Faker::Internet.user_name }
 
     factory :user do
       after(:create) { |user, proxy| user.confirm! }

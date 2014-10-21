@@ -19,9 +19,10 @@ describe 'Users' do
       should have_content 'Could not sign up!'
 
       # valid data
-      fill_in_fields 'user', email:                 'user@testing.com',
+      fill_in_fields 'user', email:                 Faker::Internet.email,
                              password:              'password',
-                             password_confirmation: 'password'
+                             password_confirmation: 'password',
+                             username:              Faker::Internet.user_name
 
       click_button 'Sign up'
 
@@ -100,23 +101,31 @@ describe 'Users' do
       it 'can sign in' do
         # invalid data
         click_button 'Sign in'
-        should have_content 'Invalid email or password'
+        should have_content 'Invalid login or password'
 
         # valid data
-        fill_in_fields :user, email: user.email, password: 'password'
+        fill_in_fields :user, login: user.email, password: 'password'
         click_button 'Sign in'
         should have_content 'Signed in successfully'
       end
 
-      context 'as an admin' do
+    end
 
-        it 'redirects to admin panel' do
-          fill_in_fields :user, email: admin.email, password: 'password'
-          click_button 'Sign in'
+    describe 'with username' do
 
-          should_be_on admin_dashboard_path
-        end
+      before do
+        visit new_user_session_path
+      end
 
+      it 'can sign in' do
+        # invalid data
+        click_button 'Sign in'
+        should have_content 'Invalid login or password'
+
+        # valid data
+        fill_in_fields :user, login: user.username, password: 'password'
+        click_button 'Sign in'
+        should have_content 'Signed in successfully'
       end
 
     end
@@ -153,6 +162,21 @@ describe 'Users' do
           should have_content 'Successfully authenticated from Facebook account'
         end
 
+      end
+
+    end
+
+    context 'as an admin' do
+
+      before do
+        visit new_user_session_path
+      end
+
+      it 'redirects to admin panel' do
+        fill_in_fields :user, login: admin.email, password: 'password'
+        click_button 'Sign in'
+
+        should_be_on admin_dashboard_path
       end
 
     end

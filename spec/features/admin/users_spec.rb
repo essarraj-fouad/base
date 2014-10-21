@@ -120,7 +120,7 @@ describe 'Managing Users' do
         should have_css '.input.error'
 
         # valid data
-        fill_in_fields :user, email: 'picard@enterprise.com', password: 'password'
+        fill_in_fields :user, email: 'picard@enterprise.com', password: 'password', username: 'picard'
 
         check 'Admin'
 
