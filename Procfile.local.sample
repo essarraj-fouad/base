@@ -1,2 +1,1 @@
-mail: mailcatcher -f
-unicorn: unicorn_rails
+web: unicorn_rails
