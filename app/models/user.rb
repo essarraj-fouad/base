@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
-  devise :omniauthable, omniauth_providers: %i[ facebook github ]
+  devise :omniauthable, omniauth_providers: %i[ facebook github twitter ]
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 
@@ -41,10 +41,10 @@ class User < ActiveRecord::Base
     password = Devise.friendly_token[0,20]
 
     user = where(provider: auth.provider, uid: auth.uid).first_or_initialize do |u|
-      u.email                 = email.blank? ? "#{u.username}@meepl.es" : email
+      u.username              = info.nickname.blank? ? email : info.nickname
+      u.email                 = email.blank? ? "#{u.username}@users.noreply.meepl.es" : email
       u.password              = password
       u.password_confirmation = password
-      u.username              = info.nickname.blank? ? email : info.nickname
     end
 
     user.skip_confirmation!

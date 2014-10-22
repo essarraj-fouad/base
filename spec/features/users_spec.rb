@@ -166,7 +166,6 @@ describe 'Users' do
 
     end
 
-
     describe 'with github' do
 
       before do
@@ -200,6 +199,45 @@ describe 'Users' do
           click_link 'Sign in with Github'
 
           should have_content 'Successfully authenticated from Github account'
+        end
+
+      end
+
+    end
+
+    describe 'with twitter' do
+
+      before do
+        visit root_path
+      end
+
+      describe 'invalid data' do
+
+        before do
+          OmniAuth.config.mock_auth[:twitter] = :invalid
+        end
+
+        it 'displays an error' do
+          click_link 'Sign in with Twitter'
+
+          should have_content 'Could not authenticate you from Twitter'
+        end
+
+      end
+
+      describe 'valid data' do
+
+        before do
+          OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new credentials: { expires: false, token: '123ABC' },
+                                                                       info:        { nickname: 'test' },
+                                                                       provider:    'twitter',
+                                                                       uid:         '123545'
+        end
+
+        it 'displays a success message' do
+          click_link 'Sign in with Twitter'
+
+          should have_content 'Successfully authenticated from Twitter account'
         end
 
       end
