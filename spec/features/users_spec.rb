@@ -234,7 +234,7 @@ describe 'Users' do
     end
 
     it 'can sign out', :js do
-      click_link user.email
+      click_link user.username
       find_link('sign out').click
       should have_content 'Signed out successfully'
     end
