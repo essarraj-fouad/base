@@ -10,6 +10,7 @@ gem 'haml-rails'
 gem 'hirb'
 gem 'jquery-rails'
 gem 'omniauth-facebook'
+gem 'omniauth-github'
 gem 'pg'
 gem 'pry-rails'
 gem 'redcarpet'
@@ -40,6 +41,7 @@ end
 group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :test do

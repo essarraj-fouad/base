@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :admin, :email, :password, :password_confirmation
+  permit_params :admin, :email, :password, :password_confirmation, :username
 
   controller do
     def update
@@ -19,6 +19,7 @@ ActiveAdmin.register User do
     f.inputs 'User Details' do
       f.input :admin
       f.input :email
+      f.input :username
       f.input :password
     end
 
