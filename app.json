@@ -26,6 +26,12 @@
     "FACEBOOK_SECRET": {
       "description": "App secret from Facebook"
     },
+    "GITHUB_APP_ID": {
+      "description": "App id from Github"
+    },
+    "GITHUB_SECRET": {
+      "description": "App secret from Github"
+    },
     "SECRET_TOKEN": {
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
