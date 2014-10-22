@@ -16,13 +16,13 @@
   %body{ data: { environment: Rails.env }}
     = render 'navbar'
 
-    .container
+    .container-fluid
       %header
-        .row.flash
-          - flash.each do |type, message|
+        - flash.each do |type, message|
+          .row-fluid.col-sm-12.flash
             .alert{ class: "alert-#{ type }" }
               %button.close{ data: { dismiss: 'alert' }} ×
               = message
 
       #content= yield
-      -# = render 'footer'
+      -# %footer= render 'footer'
