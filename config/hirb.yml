@@ -1,0 +1,16 @@
+:output:
+
+  User:
+    :options:
+      :headers:
+        failed_attempts: attempts
+        sign_in_count:   sign ins
+        updated_at:      updated
+      :fields:
+        - id
+        - username
+        - email
+        - provider
+        - sign_in_count
+        - failed_attempts
+        - updated_at
