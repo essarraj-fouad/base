@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+unless ENV['CI']
+  ruby '2.2.0'
+end
+
 gem 'rails'
 
 gem 'activeadmin',    github: 'gregbell/active_admin'
