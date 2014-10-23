@@ -36,6 +36,12 @@
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
+    "TWITTER_APP_ID": {
+      "description": "App id from Twitter"
+    },
+    "TWITTER_SECRET": {
+      "description": "App secret from Twitter"
+    },
     "UNICORN_WORKERS": {
       "description": "Number of unicorn workers to start (default: 3)",
       "generator": "3"
