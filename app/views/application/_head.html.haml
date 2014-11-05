@@ -1,0 +1,14 @@
+%meta{ charset: 'utf-8' }
+%meta{ content: 'IE=edge', 'http-equiv' => 'X-UA-Compatible' }
+%meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }
+
+= csrf_meta_tag
+= javascript_include_tag 'application'
+= stylesheet_link_tag    'application'
+
+/[if lt IE 9]
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+%title
+  Dev Fu! Base
+  = yield :title
