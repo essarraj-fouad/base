@@ -1,17 +1,7 @@
-!!!
-%html{ 'xml:lang' => 'en', lang: 'en', xmlns: 'http://www.w3.org/1999/xhtml' }
+!!! 5
+%html
 
-  %head
-    %meta{ content: 'text/html;charset=UTF-8', 'http-equiv' => 'content-type' }
-    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
-
-    = csrf_meta_tag
-    = stylesheet_link_tag    'application'
-    = javascript_include_tag 'application'
-
-    %title
-      Dev Fu! Base
-      = yield :title
+  %head= render 'head'
 
   %body{ data: { environment: Rails.env }}
     = render 'navbar'
@@ -19,10 +9,12 @@
     .container-fluid
       %header
         - flash.each do |type, message|
-          .row-fluid.col-sm-12.flash
-            .alert{ class: "alert-#{ type }" }
-              %button.close{ data: { dismiss: 'alert' }} ×
-              = message
+          .row
+            .col-sm-12
+              .flash.alert{ class: "alert-#{ type }" }
+                %button.close{ data: { dismiss: 'alert' }, type: 'button' } ×
+                = message
+
 
       #content= yield
       %footer= render 'footer'
