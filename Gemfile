@@ -6,7 +6,6 @@ end
 
 gem 'rails', '~> 4.1.7'
 
-gem 'activeadmin',    github: 'gregbell/active_admin'
 gem 'bootstrap-sass'
 gem 'cancancan'
 gem 'devise'

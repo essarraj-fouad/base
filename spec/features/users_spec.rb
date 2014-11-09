@@ -244,21 +244,6 @@ describe 'Users' do
 
     end
 
-    context 'as an admin' do
-
-      before do
-        visit new_user_session_path
-      end
-
-      it 'redirects to admin panel' do
-        fill_in_fields :user, login: admin.email, password: 'password'
-        click_button 'Sign in'
-
-        should_be_on admin_dashboard_path
-      end
-
-    end
-
   end
 
   describe 'signing out' do
