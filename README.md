@@ -93,6 +93,6 @@ Developed by [Dev Fu!, LLC](http://devfu.com)
 [cq]: https://codeclimate.com/github/devfu/base "code quality"
 
 <!-- images -->
-[cc-image]: https://codeclimate.com/github/devfu/base/coverage.png
+[cc-image]: https://codeclimate.com/github/devfu/base/coverage.svg
 [ci-image]: https://travis-ci.org/devfu/base.svg?branch=master
-[cq-image]: https://codeclimate.com/github/devfu/base.png
+[cq-image]: https://codeclimate.com/github/devfu/base.svg
