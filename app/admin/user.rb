@@ -60,11 +60,11 @@ ActiveAdmin.register User do
     redirect_to resource_path, notice: "You have unlocked #{ resource.email }."
   end
 
-  action_item :only => :show, if: ->{ user.unlocked? and can? :lock, user } do
+  action_item :lock_user, :only => :show, if: ->{ user.unlocked? and can? :lock, user } do
     link_to 'Lock User', [:lock, :admin, user]
   end
 
-  action_item :only => :show, if: ->{ user.locked? and can? :unlock, user } do
+  action_item :unlock_user, :only => :show, if: ->{ user.locked? and can? :unlock, user } do
     link_to 'Unlock User', [:unlock, :admin, user]
   end
 

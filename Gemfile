@@ -4,7 +4,7 @@ unless ENV['CI']
   ruby '2.2.0'
 end
 
-gem 'rails'
+gem 'rails', '~> 4.1.7'
 
 gem 'activeadmin',    github: 'gregbell/active_admin'
 gem 'bootstrap-sass'
