@@ -1,5 +1,5 @@
 DevFuBase::Application.configure do
-  config.action_controller.action_on_unpermitted_parameters = :raise
+  config.action_controller.action_on_unpermitted_parameters = :fail
   config.action_controller.allow_forgery_protection         = false
   config.action_controller.perform_caching                  = false
   config.action_dispatch.show_exceptions                    = false

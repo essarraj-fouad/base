@@ -14,11 +14,10 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 
-  scope :admin,           ->{ where admin: true }
-  scope :access_locked,   ->{ where 'locked_at IS NOT NULL AND locked_at >= ?', unlock_in.ago }
-  scope :access_unlocked, ->{ where 'locked_at IS NULL OR locked_at < ?',       unlock_in.ago }
-
-    scope :all_by_username, ->(names){ where('username in (?)', names) }
+  scope :admin,           -> { where admin: true }
+  scope :access_locked,   -> { where 'locked_at IS NOT NULL AND locked_at >= ?', unlock_in.ago }
+  scope :access_unlocked, -> { where 'locked_at IS NULL OR locked_at < ?',       unlock_in.ago }
+  scope :all_by_username, ->(names) { where('username in (?)', names) }
 
   attr_accessor :login
 
@@ -29,7 +28,7 @@ class User < ActiveRecord::Base
     login = conditions.delete(:login)
     query = where(conditions)
     if login
-      query.where('lower(username) = :login OR lower(email) = :login', { login: login.downcase }).first
+      query.where('lower(username) = :login OR lower(email) = :login', login: login.downcase).first
     else
       query.first
     end
@@ -38,7 +37,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth auth
     info     = auth.info
     email    = info.email
-    password = Devise.friendly_token[0,20]
+    password = Devise.friendly_token[0, 20]
 
     user = where(provider: auth.provider, uid: auth.uid).first_or_initialize do |u|
       u.username              = info.nickname.blank? ? email : info.nickname

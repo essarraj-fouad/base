@@ -9,7 +9,7 @@ FactoryGirl.define do
     username { Faker::Internet.user_name }
 
     factory :user do
-      after(:create) { |user, proxy| user.confirm! }
+      after(:create) { |user, _| user.confirm! }
 
       factory :admin do
         after(:create) { |user| user.update_attribute :admin, true }
