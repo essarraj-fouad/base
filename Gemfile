@@ -38,14 +38,14 @@ group :development do
   gem 'foreman'
   gem 'pry-byebug'
   gem 'pry-doc'
-  gem 'rubocop',           require: false
-  gem 'rubocop-rspec',     require: false
 end
 
 group :development, :test do
   gem 'dotenv-rails'
-  gem 'rspec-rails'
   gem 'faker'
+  gem 'rspec-rails'
+  gem 'rubocop',       require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do
