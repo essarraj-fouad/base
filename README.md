@@ -1,7 +1,7 @@
 Dev Fu! Base [![build status][ci-image]][ci] [![code quality][cq-image]][cq] [![code quality][cc-image]][cq]
 ============================================================================================================
 
-A template for creating rails 4.1 applications.
+A template for creating rails 4.2 applications.
 
 ### Environment Variables
 
@@ -22,9 +22,8 @@ In development & test, environment variables are loaded from `.env`
 
 ### Prerequisites
 
-- ruby 2.0.0+   # rvm install 2.1.3
+- ruby 2.1.5+   # rvm install 2.1.5 (older versions of ruby may work, but aren't recommended)
 - bundler
-- mysql         # brew install mysql
 - postgresql    # http://postgresapp.com
 
 ```bash
