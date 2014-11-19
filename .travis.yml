@@ -15,7 +15,7 @@ env:
 language: ruby
 
 rvm:
-  - 2.1.4
+  - 2.1.5
   - 2.2.0
 
 script: RAILS_ENV=test bundle exec rake spec
