@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-unless ENV['CI']
-  ruby '2.2.0'
-end
+ruby '2.2.0' unless ENV['CI']
 
 gem 'rails', '4.2.0.beta4'
 
@@ -44,8 +42,10 @@ end
 
 group :development, :test do
   gem 'dotenv-rails'
-  gem 'rspec-rails'
   gem 'faker'
+  gem 'rspec-rails'
+  gem 'rubocop',       require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do

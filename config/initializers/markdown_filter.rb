@@ -1,14 +1,14 @@
 class SyntaxRenderer < Redcarpet::Render::HTML
 
-  def block_code code, language
-      "<pre><code>#{ code }</code></pre>"
+  def block_code code
+    "<pre><code>#{ code }</code></pre>"
   end
 
 end
 
 module Haml::Filters
 
-  remove_filter 'Markdown' #remove the existing Markdown filter
+  remove_filter 'Markdown' # remove the existing Markdown filter
 
   module Markdown
 
@@ -26,7 +26,7 @@ module Haml::Filters
         :tables
       ])
 
-       markdown.render text
+      markdown.render text
     end
 
   private
