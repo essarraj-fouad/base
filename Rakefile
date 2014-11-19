@@ -10,3 +10,6 @@ DevFuBase::Application.load_tasks
 RuboCop::RakeTask.new do |task|
   task.formatters = %w[ simple ]
 end
+
+task('spec').clear # remove default spec task
+RSpec::Core::RakeTask.new :spec => :rubocop
