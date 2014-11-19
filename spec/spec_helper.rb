@@ -25,6 +25,8 @@ RSpec.configure do |config|
   config.expect_with(:rspec) { |c| c.syntax = :should }
   config.mock_with(:rspec)   { |c| c.syntax = :should }
 
+  config.include FactoryGirl::Syntax::Methods
+
   config.before :suite do
     DatabaseCleaner.strategy = :truncation
   end
