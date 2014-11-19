@@ -4,9 +4,8 @@ unless ENV['CI']
   ruby '2.2.0'
 end
 
-gem 'rails', '~> 4.1.7'
+gem 'rails', '4.2.0.beta4'
 
-gem 'activeadmin',    github: 'gregbell/active_admin'
 gem 'bootstrap-sass'
 gem 'cancancan'
 gem 'devise'
@@ -19,7 +18,7 @@ gem 'omniauth-twitter'
 gem 'pg'
 gem 'pry-rails'
 gem 'redcarpet'
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0.0.beta1'
 
 group :assets do
   gem 'coffee-rails'
