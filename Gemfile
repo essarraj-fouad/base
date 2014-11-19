@@ -40,6 +40,7 @@ group :development do
   gem 'foreman'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'rubocop',           require: false
 end
 
 group :development, :test do
