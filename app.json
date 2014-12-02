@@ -18,29 +18,36 @@
   ],
   "env": {
     "EMAIL_HOST": {
-      "description": "The hostname used in outgoing emails."
+      "description": "The hostname used in outgoing emails.",
+      "required": false
     },
     "FACEBOOK_APP_ID": {
-      "description": "App id from Facebook"
+      "description": "App id from Facebook",
+      "required": false
     },
     "FACEBOOK_SECRET": {
-      "description": "App secret from Facebook"
+      "description": "App secret from Facebook",
+      "required": false
     },
     "GITHUB_APP_ID": {
-      "description": "App id from Github"
+      "description": "App id from Github",
+      "required": false
     },
     "GITHUB_SECRET": {
-      "description": "App secret from Github"
+      "description": "App secret from Github",
+      "required": false
     },
     "SECRET_TOKEN": {
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
     "TWITTER_APP_ID": {
-      "description": "App id from Twitter"
+      "description": "App id from Twitter",
+      "required": false
     },
     "TWITTER_SECRET": {
-      "description": "App secret from Twitter"
+      "description": "App secret from Twitter",
+      "required": false
     },
     "UNICORN_WORKERS": {
       "description": "Number of unicorn workers to start (default: 3)",
